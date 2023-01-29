@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+
+<div class="row ">
+    <div class="col-lg-8 col-lg-offset-2 ">
+        <div class="panel panel-default  ">
+            <div class="panel-heading  ">
+                <h3 class="panel-title">Available Polls of <span class="name">&nbsp;: {{userName}}</span></h3>
+                
+            </div>
+                
+            <ul class="list-group">
+                
+                {% for poll in polls %}
+                <li class="list-group-item">
+                    <strong class="i hover-green">{{ poll.question }} &nbsp;</strong>
+                    <a onclick="alert('Are You sure ? \n press back if not')" class="btn-danger pull-right" href="{% url 'delete' poll.id %}">Delete</a>
+                    <span class="pull-right">
+                        <a href="{% url 'vote' poll.id userName %}" class="btn btn-info btn-xs ">Vote</a> 
+                        <a href="{% url 'results' poll.id userName %}" class="btn btn-default btn-xs br3">View Results</a> &nbsp;
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+          
+        </div>
+    </div>
+</div>
+
+{% for poll in allpolls%}
+
+<div class="row br-3 ">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3 class="panel-title">Poll By <span class="name">&nbsp;{{poll.name}}</span></h3>
+            </div>
+                
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <strong>{{ poll.question }} </strong>
+                    <span class="pull-right">
+                        <a href="{% url 'vote' poll.id userName %}" class="btn btn-info btn-xs">Vote</a> &nbsp;
+                        <a href="{% url 'results' poll.id userName %}" class="btn btn-default btn-xs br3">View Results</a> &nbsp;
+                    </span>
+                </li>
+               
+            </ul>
+          
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "login.html" %}
+
+{% block name %}
+<label 
+class=" db ma2 fw6 lh-copy f6" htmlFor="name">Name</label>
+<input 
+class="pa2 input-reset br3 ba bg-transparent hover-bg-black  w-70" type="name" name="name"
+placeholder="name" />
+{% endblock %}
+{% block register %}
+
+<input href="{% url 'login' %}"
+class="br4 ph3 pv2 input-reset ba b--gray bg-blue grow pointer fw6 f6 dib" type="submit" value="Register"/>
+
+<button class=" ma3 br4 b--gray ph3 pv2   input-reset ba bg-gray grow pointer f6 dib"><a class =" black fw6" href="{% url 'login' %}">Log In</a></button>
+
+{% endblock %}

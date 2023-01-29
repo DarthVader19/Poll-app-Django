@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="card " style="width: 18rem;">
+    <div style="width: max-content;"
+    class="card-header b ">
+        User Profile of {{user.name}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"
+      style="width: max-content;"  ><span class="b">Name : </span>{{user.name}}</li>
+      <li class="list-group-item " style="width: max-content;"><span class="b">Email : </span>{{user.email}}</li>
+      
+    </ul>
+    <ol type="1" class="list-group list-group-flush">
+     
+        {% for poll in polls %}
+        <div>
+          <span class="b">question : </span><li class="list-group-item br4 ">{{poll.question}}</li>
+        </div>
+        
+        {% endfor %}
+      </ol>
+        
+        
+      
+  </div>
+
+{% endblock%}
